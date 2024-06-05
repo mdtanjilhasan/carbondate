@@ -1,0 +1,26 @@
+{
+  "name": "carbondate",
+  "version": "1.0.0",
+  "description": "A Simple DateTime Package Based On dayjs. Also Supports Timezone. Developer friendly syntax.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdtanjilhasan/carbondate.git"
+  },
+  "keywords": [
+    "datetimejs", "datetime", "datetimezone", "timezone"
+  ],
+  "author": "Md. Tanjil Hasan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mdtanjilhasan/carbondate/issues"
+  },
+  "homepage": "https://github.com/mdtanjilhasan/carbondate#readme",
+  "dependencies": {
+    "dayjs": "^1.11.11"
+  }
+}
