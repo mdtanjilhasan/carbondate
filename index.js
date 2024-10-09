@@ -27,7 +27,7 @@ class CarbonDate {
     }
 
     static init(timezone = null) {
-        return new DateTime(timezone);
+        return new CarbonDate(timezone);
     }
 
     now() {
@@ -305,7 +305,7 @@ class CarbonDate {
 
     // date timezone start
     currentTimezone() {
-        this.value = process.env.APP_TIMEZONE ? process.env.APP_TIMEZONE : dayjs.tz.guess();
+        this.value = import.meta.env.APP_TIMEZONE ? import.meta.env.APP_TIMEZONE : dayjs.tz.guess();
         return this;
     }
 
@@ -317,7 +317,7 @@ class CarbonDate {
         if (timezone) {
             this.timezone = timezone;
         } else {
-            this.timezone = process.env.APP_TIMEZONE ? process.env.APP_TIMEZONE : dayjs.tz.guess();
+            this.timezone = import.meta.env.APP_TIMEZONE ? import.meta.env.APP_TIMEZONE : dayjs.tz.guess();
         }
     }
 
@@ -681,4 +681,10 @@ class CarbonDate {
     }
 }
 
-module.exports = CarbonDate;
+// UMD pattern to support both CommonJS and ES module environments
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+    module.exports = CarbonDate; // CommonJS
+    module.exports.default = CarbonDate; // ES Module compatibility for CommonJS environments
+} else {
+    export default CarbonDate; // ES Module
+}

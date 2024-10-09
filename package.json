@@ -1,18 +1,26 @@
 {
   "name": "carbondate",
-  "version": "2.0.1",
+  "version": "2.1.1",
   "description": "A Simple DateTime Package Based On dayjs. Also Supports Timezone. Developer friendly syntax.",
-  "main": "index.js",
-  "type": "module",
+  "main": "lib/carbondate.js",
+  "module": "src/carbondate.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src --out-dir lib"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mdtanjilhasan/carbondate.git"
   },
   "keywords": [
-    "datetimejs", "datetime", "datetimezone", "timezone"
+    "datetimejs",
+    "datetime",
+    "datetimezone",
+    "timezone",
+    "carbondate",
+    "carbon",
+    "date",
+    "time"
   ],
   "author": "Md. Tanjil Hasan",
   "license": "MIT",
@@ -21,6 +29,11 @@
   },
   "homepage": "https://github.com/mdtanjilhasan/carbondate#readme",
   "dependencies": {
-    "dayjs": "^1.11.11"
+    "dayjs": "^1.11.13"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.25.7",
+    "@babel/core": "^7.25.7",
+    "@babel/preset-env": "^7.25.7"
   }
 }
