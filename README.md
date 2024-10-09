@@ -9,23 +9,23 @@ npm i carbondate
 # Uses
 import this in your project
 ```bash
-import DateTime from "carbondate";
+import CarbonDate from "carbondate";
 ```
 #### Initialization
 ```bash
-DateTime.init().now().format().value;
+CarbonDate.init().now().format().value;
 // 2024-05-27 13:09:59
 ```
 Or
 ```bash
-const datetime = new DateTime();
+const datetime = new CarbonDate();
 datetime.now().format().value;
 // 2024-05-27 13:09:59
 ```
 #### List of all available formats
 
 ```bash
-DateTime.init().now().format('YYYY-MM-DD hh:mm:ss A').value
+CarbonDate.init().now().format('YYYY-MM-DD hh:mm:ss A').value
 // 2024-05-27 02:06:21 PM
 ```
 
@@ -169,42 +169,42 @@ DateTime.init().now().format('YYYY-MM-DD hh:mm:ss A').value
 # Parsing
 
 ```bash
-DateTime.init().parse(new Date()).format().value
+CarbonDate.init().parse(new Date()).format().value
 // 2024-05-27 13:10:11
 ```
 Or
 ```bash
-DateTime.init().parse(DateTime.init().now().value).format().value
+CarbonDate.init().parse(CarbonDate.init().now().value).format().value
 // 2024-05-27 13:10:20
 ```
 Or
 ```bash
-DateTime.init().parse('2022').format().value
+CarbonDate.init().parse('2022').format().value
 // 2022-01-01 00:00:00
 ```
 Or
 ```bash
-DateTime.init().parse('2022-05').format().value
+CarbonDate.init().parse('2022-05').format().value
 // 2022-05-01 00:00:00
 ```
 Or
 ```bash
-DateTime.init().parse('2022-05-08').format().value
+CarbonDate.init().parse('2022-05-08').format().value
 // 2022-05-08 00:00:00
 ```
 Or
 ```bash
-DateTime.init().parse('10:55:10').format().value
+CarbonDate.init().parse('10:55:10').format().value
 // 2024-05-27 10:55:10
 ```
 Or
 ```bash
-DateTime.init().parse('20:55:10').format('YYYY-MM-DD hh:mm:ss A').value
+CarbonDate.init().parse('20:55:10').format('YYYY-MM-DD hh:mm:ss A').value
 // 2024-05-27 08:55:10 PM
 ```
 Or
 ```bash
-DateTime.init().parse('2023-05-04 20:55:10').format('YYYY-MM-DD hh:mm:ss A').value
+CarbonDate.init().parse('2023-05-04 20:55:10').format('YYYY-MM-DD hh:mm:ss A').value
 // 2023-05-04 08:55:10 PM
 ```
 
@@ -212,12 +212,12 @@ DateTime.init().parse('2023-05-04 20:55:10').format('YYYY-MM-DD hh:mm:ss A').val
 
 Add One Day
 ```bash
-DateTime.init().now().addDay().format().value
+CarbonDate.init().now().addDay().format().value
 // 2024-05-28 13:19:59
 ```
 Add More than one Day
 ```bash
-DateTime.init().now().addDays(2).format().value
+CarbonDate.init().now().addDays(2).format().value
 // 2024-05-29 13:20:50
 ```
 #### List of all methods
@@ -308,12 +308,12 @@ DateTime.init().now().addDays(2).format().value
 
 Subtract One Day
 ```bash
-DateTime.init().now().subDay().format().value
+CarbonDate.init().now().subDay().format().value
 // 2024-05-26 13:19:59
 ```
 Subtract More than one Day
 ```bash
-DateTime.init().now().subDays(2).format().value
+CarbonDate.init().now().subDays(2).format().value
 // 2024-05-25 13:20:50
 ```
 #### List of all methods
@@ -403,12 +403,12 @@ DateTime.init().now().subDays(2).format().value
 # Difference
 Difference in day between two days
 ```bash
-DateTime.init().now().diffInDays(DateTime.init().now().subDay().value).value
+CarbonDate.init().now().diffInDays(CarbonDate.init().now().subDay().value).value
 // 1
 ```
 OR
 ```bash
-DateTime.init().parse('2024-05-01').diffInDays(DateTime.init().parse('2024-05-05').value).value
+CarbonDate.init().parse('2024-05-01').diffInDays(CarbonDate.init().parse('2024-05-05').value).value
 // 4
 ```
 #### List of all methods
@@ -463,12 +463,12 @@ DateTime.init().parse('2024-05-01').diffInDays(DateTime.init().parse('2024-05-05
 # Comparison
 Comparing two dates
 ```bash
-DateTime.init().parse('2024-05-01').lessThan(DateTime.init().parse('2024-05-05').value).value
+CarbonDate.init().parse('2024-05-01').lessThan(CarbonDate.init().parse('2024-05-05').value).value
 // true
 ```
 OR
 ```bash
-DateTime.init().now().lessThan(DateTime.init().parse('2024-05-05').value).value
+CarbonDate.init().now().lessThan(CarbonDate.init().parse('2024-05-05').value).value
 // false
 ```
 
@@ -532,48 +532,48 @@ DateTime.init().now().lessThan(DateTime.init().parse('2024-05-05').value).value
 
 # Leap Year
 ```bash
-DateTime.init().now().checkLeapYear().value
+CarbonDate.init().now().checkLeapYear().value
 // true
 ```
 
 # Days in month
 ```bash
-DateTime.init().now().dayCountInMonth().value
+CarbonDate.init().now().dayCountInMonth().value
 // as now is May so output is: 31
 ```
 
 # Start of month
 ```bash
-DateTime.init().now().startOfMonth().format('YYYY-MM-DD').value
+CarbonDate.init().now().startOfMonth().format('YYYY-MM-DD').value
 // 2024-05-01
 ```
 
 # End of month
 ```bash
-DateTime.init().now().endOfMonth().format('YYYY-MM-DD').value
+CarbonDate.init().now().endOfMonth().format('YYYY-MM-DD').value
 // 2024-05-31
 ```
 
 # Diff for human
 ```bash
-DateTime.init().now().diffForHumans().value
+CarbonDate.init().now().diffForHumans().value
 // a few seconds ago
 ```
 Or
 ```bash
-DateTime.init().now().diffForHumans(DateTime.init().now().subHour().value).value
+CarbonDate.init().now().diffForHumans(CarbonDate.init().now().subHour().value).value
 // in an hour
 ```
 
 # Month Number
 * be careful with the month name spelling
  ```bash
- DateTime.init().monthNumber('January').value
+ CarbonDate.init().monthNumber('January').value
  // 01
  ```
 OR
  ```bash
- DateTime.init().monthNumber('jan').value
+ CarbonDate.init().monthNumber('jan').value
  // 01
  ```
 
@@ -583,12 +583,12 @@ OR
 Set your own Timezone
 
 ```bash
-DateTime.init('America/Los_Angeles').now().format().value;
+CarbonDate.init('America/Los_Angeles').now().format().value;
 // 2024-05-28 06:12:26
 ```
 Or
 ```bash
-const datetime = new DateTime('America/Los_Angeles');
+const datetime = new CarbonDate('America/Los_Angeles');
 datetime.now().format().value;
 // 2024-05-28 06:12:26
 ```
@@ -604,12 +604,12 @@ if you wish to use ```.env``` file for timezone; for central timezone for your a
 After following this steps you can use like the example bellow:
 
 ```bash
-DateTime.init().now().format().value;
+CarbonDate.init().now().format().value;
 // 2024-05-28 06:12:26 this is the time for America/Los_Angeles
 ```
 Or
 ```bash
-const datetime = new DateTime();
+const datetime = new CarbonDate();
 datetime.now().format().value;
 // 2024-05-28 06:12:26 this is the time for America/Los_Angeles
 ```
@@ -617,23 +617,23 @@ datetime.now().format().value;
 
 # Current Timezone
 ```bash
-DateTime.init('America/Los_Angeles').currentTimezone().value
+CarbonDate.init('America/Los_Angeles').currentTimezone().value
 // America/Los_Angeles
 ```
 
 if you are not using ```.env``` file
 ```bash
-DateTime.init().currentTimezone().value
+CarbonDate.init().currentTimezone().value
 // Asia/Dhaka my current timezone
 ```
 
 # Convert date time to a specific timezone
 ```bash
-DateTime.init('America/Los_Angeles').parse('2024-05-10 10:00:50', true).format('YYYY-MM-DD hh:ss:mm A').value
+CarbonDate.init('America/Los_Angeles').parse('2024-05-10 10:00:50', true).format('YYYY-MM-DD hh:ss:mm A').value
 // 2024-05-09 09:50:00 PM
 ```
 if you are using ```.env``` file
 ```bash
-DateTime.init().parse('2024-05-10 10:00:50', true).format('YYYY-MM-DD hh:ss:mm A').value
+CarbonDate.init().parse('2024-05-10 10:00:50', true).format('YYYY-MM-DD hh:ss:mm A').value
 // 2024-05-09 09:50:00 PM
 ```
