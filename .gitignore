@@ -4,3 +4,6 @@ index.min.js
 package-lock.json
 node_modules
 backup.js
+package.back.json
+src/carbondate.js
+src/carbondate.backup.js
