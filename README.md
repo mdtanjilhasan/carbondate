@@ -11,6 +11,10 @@ import this in your project
 ```bash
 import CarbonDate from "carbondate";
 ```
+Or
+```bash
+const CarbonDate = require('carbondate');
+```
 #### Initialization
 ```bash
 CarbonDate.init().now().format().value;

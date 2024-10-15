@@ -7,3 +7,5 @@ backup.js
 package.back.json
 src/carbondate.js
 src/carbondate.backup.js
+lib
+.babelrc
