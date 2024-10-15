@@ -7,7 +7,7 @@
         define(['dayjs', 'dayjs/plugin/utc', 'dayjs/plugin/timezone', 'dayjs/plugin/isSameOrBefore', 'dayjs/plugin/isSameOrAfter', 'dayjs/plugin/isLeapYear', 'dayjs/plugin/isBetween', 'dayjs/plugin/relativeTime'], factory);
     } else {
         // Browser globals (root is the window)
-        root.Greeter = factory(root.dayjs, root.utc, root.timezone, root.isSameOrBefore, root.isSameOrAfter, root.isLeapYear, root.isBetween, root.relativeTime);
+        root.CarbonDate = factory(root.dayjs, root.utc, root.timezone, root.isSameOrBefore, root.isSameOrAfter, root.isLeapYear, root.isBetween, root.relativeTime);
     }
 }(typeof self !== 'undefined' ? self : this, function (dayjs, utc, timezone, isSameOrBefore, isSameOrAfter, isLeapYear, isBetween, relativeTime) {
 
