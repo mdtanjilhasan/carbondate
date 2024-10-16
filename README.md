@@ -603,7 +603,7 @@ if you wish to use ```.env``` file for timezone; for central timezone for your a
 
 1. Install ```dotenv``` package. using ```npm i dotenv```
 2. Create ```.env``` file to the root of your project
-3. set timezone ```APP_DATETIMEZONE='America/Los_Angeles'```
+3. set timezone ```APP_TIMEZONE='America/Los_Angeles'```
 
 After following this steps you can use like the example bellow:
 

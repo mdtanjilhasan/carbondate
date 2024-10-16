@@ -26,6 +26,41 @@ class CarbonDate {
 
     constructor(timezone = null) {
         this.value = null;
+        Object.defineProperty(this, 'SUNDAY', {
+            value: 0,
+            writable: false,
+            configurable: false
+        });
+        Object.defineProperty(this, 'MONDAY', {
+            value: 1,
+            writable: false,
+            configurable: false
+        });
+        Object.defineProperty(this, 'TUESDAY', {
+            value: 2,
+            writable: false,
+            configurable: false
+        });
+        Object.defineProperty(this, 'WEDNESDAY', {
+            value: 3,
+            writable: false,
+            configurable: false
+        });
+        Object.defineProperty(this, 'THURSDAY', {
+            value: 4,
+            writable: false,
+            configurable: false
+        });
+        Object.defineProperty(this, 'FRIDAY', {
+            value: 5,
+            writable: false,
+            configurable: false
+        });
+        Object.defineProperty(this, 'SATURDAY', {
+            value: 6,
+            writable: false,
+            configurable: false
+        });
         this.#setTimeZone(timezone);
     }
 
@@ -38,6 +73,22 @@ class CarbonDate {
         return this;
     }
 
+    createFromObject({Y= new Date().getFullYear(), M= (new Date().getMonth() + 1), D= new Date().getDate(), H= '00', m= '00', s= '00'}) {
+        let datetime = `${Y}-${M}-${D} ${H}:${m}:${s}`;
+        this.value = dayjs(datetime).tz(this.timezone);
+        return this;
+    }
+
+    yesterday() {
+        this.value = dayjs().tz(this.timezone).subtract(1, 'day');
+        return this;
+    }
+
+    tomorrow() {
+        this.value = dayjs().tz(this.timezone).add(1, 'day');
+        return this;
+    }
+
     format(string = 'YYYY-MM-DD HH:mm:ss') {
         this.value = this.value.format(string);
         return this;
@@ -45,6 +96,16 @@ class CarbonDate {
 
     toIso() {
         this.value = this.value.toISOString();
+        return this;
+    }
+
+    toDateTimeString() {
+        this.value = this.value.format('YYYY-MM-DD HH:mm:ss');
+        return this;
+    }
+
+    toDateString() {
+        this.value = this.value.format('YYYY-MM-DD');
         return this;
     }
 
@@ -519,6 +580,49 @@ class CarbonDate {
         this.value = currentVal.isBetween(startDate, endDate);
         return this;
     }
+
+    isMonday() {
+        let date = new Date(this.value.format('YYYY-MM-DD'));
+        this.value = date.getDay() === this.MONDAY;
+        return this;
+    }
+
+    isTuesday() {
+        let date = new Date(this.value.format('YYYY-MM-DD'));
+        this.value = date.getDay() === this.TUESDAY;
+        return this;
+    }
+
+    isWednesday() {
+        let date = new Date(this.value.format('YYYY-MM-DD'));
+        this.value = date.getDay() === this.WEDNESDAY;
+        return this;
+    }
+
+    isThursday() {
+        let date = new Date(this.value.format('YYYY-MM-DD'));
+        this.value = date.getDay() === this.THURSDAY;
+        return this;
+    }
+
+    isFriday() {
+        let date = new Date(this.value.format('YYYY-MM-DD'));
+        this.value = date.getDay() === this.FRIDAY;
+        return this;
+    }
+
+    isSaturday() {
+        let date = new Date(this.value.format('YYYY-MM-DD'));
+        this.value = date.getDay() === this.SATURDAY;
+        return this;
+    }
+
+    isSunday() {
+        let date = new Date(this.value.format('YYYY-MM-DD'));
+        this.value = date.getDay() === this.SUNDAY;
+        return this;
+    }
+
 
     // comparison end
 

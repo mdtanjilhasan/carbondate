@@ -6,9 +6,19 @@ declare module 'carbondate' {
 
         now(): CarbonDate;
 
+        createFromObject(date: Object): CarbonDate;
+
+        yesterday(): CarbonDate;
+
+        tomorrow(): CarbonDate;
+
         format(format: string): CarbonDate;
 
         toIso(): CarbonDate;
+
+        toDateTimeString(): CarbonDate;
+
+        toDateString(): CarbonDate;
 
         parse(datetime: string, convert?: boolean): CarbonDate;
 
@@ -115,6 +125,20 @@ declare module 'carbondate' {
         startOfDay(): CarbonDate;
 
         endOfDay(): CarbonDate;
+
+        isMonday(): CarbonDate;
+
+        isTuesday(): CarbonDate;
+
+        isWednesday(): CarbonDate;
+
+        isThursday(): CarbonDate;
+
+        isFriday(): CarbonDate;
+
+        isSaturday(): CarbonDate;
+
+        isSunday(): CarbonDate;
 
         isSameMonth(date: Date | string): CarbonDate;
 
