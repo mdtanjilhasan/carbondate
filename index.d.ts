@@ -20,6 +20,38 @@ declare module 'carbondate' {
 
         toDateString(): CarbonDate;
 
+        toTimeString(): CarbonDate;
+
+        toDayDateTimeString(): CarbonDate;
+
+        toFormattedDayDateString(): CarbonDate;
+
+        toFormattedDateString(): CarbonDate;
+
+        getYear(): CarbonDate;
+
+        getFullYear(): CarbonDate;
+
+        getMonth(): CarbonDate;
+
+        getMonthName(): CarbonDate;
+
+        getFullMonthName(): CarbonDate;
+
+        getDay(): CarbonDate;
+
+        getDayName(): CarbonDate;
+
+        getFullDayName(): CarbonDate;
+
+        getHour(): CarbonDate;
+
+        getHourIn24(): CarbonDate;
+
+        getMinute(): CarbonDate;
+
+        getSecond(): CarbonDate;
+
         parse(datetime: string, convert?: boolean): CarbonDate;
 
         addDay(): CarbonDate;
@@ -139,6 +171,10 @@ declare module 'carbondate' {
         isSaturday(): CarbonDate;
 
         isSunday(): CarbonDate;
+
+        isWeekday(): CarbonDate;
+
+        isWeekend(): CarbonDate;
 
         isSameMonth(date: Date | string): CarbonDate;
 

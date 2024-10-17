@@ -73,6 +73,12 @@ export default class CarbonDate {
         return this;
     }
 
+    createFromObject({Y= new Date().getFullYear(), M= (new Date().getMonth() + 1), D= new Date().getDate(), H= '00', m= '00', s= '00'}) {
+        let datetime = `${Y}-${M}-${D} ${H}:${m}:${s}`;
+        this.value = dayjs(datetime).tz(this.timezone);
+        return this;
+    }
+
     yesterday() {
         this.value = dayjs().tz(this.timezone).subtract(1, 'day');
         return this;
@@ -82,6 +88,8 @@ export default class CarbonDate {
         this.value = dayjs().tz(this.timezone).add(1, 'day');
         return this;
     }
+
+    // String Formatting Start
 
     format(string = 'YYYY-MM-DD HH:mm:ss') {
         this.value = this.value.format(string);
@@ -102,6 +110,92 @@ export default class CarbonDate {
         this.value = this.value.format('YYYY-MM-DD');
         return this;
     }
+
+    toTimeString() {
+        this.value = this.value.format('HH:mm:ss');
+        return this;
+    }
+
+    toDayDateTimeString() {
+        this.value = this.value.format('ddd, MMM DD, YYYY hh:mm A');
+        return this;
+    }
+
+    toFormattedDayDateString() {
+        this.value = this.value.format('ddd, MMM DD, YYYY');
+        return this;
+    }
+
+    toFormattedDateString() {
+        this.value = this.value.format('MMM DD, YYYY');
+        return this;
+    }
+
+    // String Formatting End
+
+    // Getters Start
+
+    getYear() {
+        this.value = this.value.format('YY');
+        return this;
+    }
+
+    getFullYear() {
+        this.value = this.value.format('YYYY');
+        return this;
+    }
+
+    getMonth() {
+        this.value = this.value.format('MM');
+        return this;
+    }
+
+    getMonthName() {
+        this.value = this.value.format('MMM');
+        return this;
+    }
+
+    getFullMonthName() {
+        this.value = this.value.format('MMMM');
+        return this;
+    }
+
+    getDay() {
+        this.value = this.value.format('DD');
+        return this;
+    }
+
+    getDayName() {
+        this.value = this.value.format('ddd');
+        return this;
+    }
+
+    getFullDayName() {
+        this.value = this.value.format('dddd');
+        return this;
+    }
+
+    getHour() {
+        this.value = this.value.format('hh');
+        return this;
+    }
+
+    getHourIn24() {
+        this.value = this.value.format('HH');
+        return this;
+    }
+
+    getMinute() {
+        this.value = this.value.format('mm');
+        return this;
+    }
+
+    getSecond() {
+        this.value = this.value.format('ss');
+        return this;
+    }
+
+    // Getters End
 
     parse(dateTimeString, convert = false) {
         let dateTime = this.#getValidData(dateTimeString);
@@ -575,7 +669,6 @@ export default class CarbonDate {
         return this;
     }
 
-
     isMonday() {
         let date = new Date(this.value.format('YYYY-MM-DD'));
         this.value = date.getDay() === this.MONDAY;
@@ -615,6 +708,18 @@ export default class CarbonDate {
     isSunday() {
         let date = new Date(this.value.format('YYYY-MM-DD'));
         this.value = date.getDay() === this.SUNDAY;
+        return this;
+    }
+
+    isWeekday() {
+        let day = new Date(this.value.format('YYYY-MM-DD')).getDay();
+        this.value = day > 0 && day < 6; // weekday Monday to Friday
+        return this;
+    }
+
+    isWeekend() {
+        let day = new Date(this.value.format('YYYY-MM-DD')).getDay();
+        this.value = [0, '0', 6, '6'].includes(day); // weekend Saturday & Sunday
         return this;
     }
 
