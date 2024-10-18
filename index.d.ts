@@ -52,6 +52,18 @@ declare module 'carbondate' {
 
         getSecond(): CarbonDate;
 
+        setYear(year: Number): CarbonDate;
+
+        setMonth(month: Number): CarbonDate;
+
+        setDay(day: Number): CarbonDate;
+
+        setHour(hour: Number): CarbonDate;
+
+        setMinute(minute: Number): CarbonDate;
+
+        setSecond(second: Number): CarbonDate;
+
         parse(datetime: string, convert?: boolean): CarbonDate;
 
         addDay(): CarbonDate;

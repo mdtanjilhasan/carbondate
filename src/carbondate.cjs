@@ -17,7 +17,6 @@ dayjs.extend(isLeapYear);
 dayjs.extend(isBetween);
 dayjs.extend(relativeTime);
 
-// Now inside the factory, you have access to `dayjs`
 class CarbonDate {
 
     // Protected properties are usually prefixed with an underscore _
@@ -73,8 +72,8 @@ class CarbonDate {
         return this;
     }
 
-    createFromObject({Y= new Date().getFullYear(), M= (new Date().getMonth() + 1), D= new Date().getDate(), H= '00', m= '00', s= '00'}) {
-        let datetime = `${Y}-${M}-${D} ${H}:${m}:${s}`;
+    createFromObject({year= new Date().getFullYear(), month= (new Date().getMonth() + 1), day= new Date().getDate(), hour= '00', minute= '00', second= '00'}) {
+        let datetime = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
         this.value = dayjs(datetime).tz(this.timezone);
         return this;
     }
@@ -196,6 +195,88 @@ class CarbonDate {
     }
 
     // Getters End
+
+    // Fluent Setters Start
+
+    setYear(year) {
+        if (!year) {
+            throw new Error('Parameter #1 is required');
+        }
+        if (!year.toString().match(/\d{4}/)) {
+            throw new Error('Must be 4 digits long');
+        }
+        let date = new Date();
+        date.setFullYear(year);
+        this.value = dayjs(date.toString());
+        return this;
+    }
+
+    setMonth(month) {
+        if (!month) {
+            throw new Error('Parameter #1 is required');
+        }
+        if (month < 1 || month > 12) {
+            throw new Error('Invalid Month');
+        }
+        let date = new Date(this.value.format('YYYY-MM-DD HH:mm:ss'));
+        date.setMonth(month - 1);
+        this.value = dayjs(date.toString());
+        return this;
+    }
+
+    setDay(day) {
+        if (!day) {
+            throw new Error('Parameter #1 is required');
+        }
+        if (day < 1 || day > 31) {
+            throw new Error('Invalid Day');
+        }
+        let date = new Date(this.value.format('YYYY-MM-DD HH:mm:ss'));
+        date.setDate(day);
+        this.value = dayjs(date.toString());
+        return this;
+    }
+
+    setHour(hour) {
+        if (!hour) {
+            throw new Error('Parameter #1 is required');
+        }
+        if (hour < 0 || hour > 23) {
+            throw new Error('Invalid Hour');
+        }
+        let date = new Date(this.value.format('YYYY-MM-DD HH:mm:ss'));
+        date.setHours(hour);
+        this.value = dayjs(date.toString());
+        return this;
+    }
+
+    setMinute(minute) {
+        if (!minute) {
+            throw new Error('Parameter #1 is required');
+        }
+        if (minute < 0 || minute > 59) {
+            throw new Error('Invalid Minute');
+        }
+        let date = new Date(this.value.format('YYYY-MM-DD HH:mm:ss'));
+        date.setMinutes(minute);
+        this.value = dayjs(date.toString());
+        return this;
+    }
+
+    setSecond(second) {
+        if (!second) {
+            throw new Error('Parameter #1 is required');
+        }
+        if (second < 0 || second > 59) {
+            throw new Error('Invalid Second');
+        }
+        let date = new Date(this.value.format('YYYY-MM-DD HH:mm:ss'));
+        date.setSeconds(second);
+        this.value = dayjs(date.toString());
+        return this;
+    }
+
+    // Fluent Setters End
 
     parse(dateTimeString, convert = false) {
         let dateTime = this.#getValidData(dateTimeString);
