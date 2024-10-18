@@ -26,6 +26,84 @@ const datetime = new CarbonDate();
 datetime.now().format().value;
 // 2024-05-27 13:09:59
 ```
+#### Getters
+
+```bash
+CarbonDate.init().getYear().value
+// 24
+```
+
+<table>
+    <thead>
+        <tr>
+            <th>Method</th>
+            <th>Example</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>getYear</code></td>
+            <td>24</td>
+            <td>Two-digit year</td>
+        </tr>
+        <tr>
+            <td><code>getFullYear</code></td>
+            <td>2024</td>
+            <td>Four-digit year</td>
+        </tr>
+        <tr>
+            <td><code>getMonth</code></td>
+            <td>01-12</td>
+            <td>Month, 2-digits</td>
+        </tr>
+        <tr>
+            <td><code>getMonthName</code></td>
+            <td>Jan-Dec</td>
+            <td>The abbreviated month name</td>
+        </tr>
+        <tr>
+            <td><code>getFullMonthName</code></td>
+            <td>January-December</td>
+            <td>The full month name</td>
+        </tr>
+        <tr>
+            <td><code>getDay</code></td>
+            <td>01-31</td>
+            <td>The day of the month, 2-digits</td>
+        </tr>
+        <tr>
+            <td><code>getDayName</code></td>
+            <td>Sun-Sat</td>
+            <td>The short name of the day of the week</td>
+        </tr>
+        <tr>
+            <td><code>getFullDayName</code></td>
+            <td>Sunday-Saturday</td>
+            <td>The name of the day of the week</td>
+        </tr>
+        <tr>
+            <td><code>getHour</code></td>
+            <td>01-12</td>
+            <td>The hour, 12-hour clock, 2-digits</td>
+        </tr>
+        <tr>
+            <td><code>getHourIn24</code></td>
+            <td>00-23</td>
+            <td>The hour, 2-digits</td>
+        </tr>
+        <tr>
+            <td><code>getMinute</code></td>
+            <td>00-59</td>
+            <td>The minute, 2-digits</td>
+        </tr>
+        <tr>
+            <td><code>getSecond</code></td>
+            <td>00-59</td>
+            <td>The second, 2-digits</td>
+        </tr>
+    </tbody>
+</table>
 #### List of all available formats
 
 ```bash
