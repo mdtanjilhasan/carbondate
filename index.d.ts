@@ -148,6 +148,8 @@ declare module 'carbondate' {
 
         equalTo(date: Date | string): CarbonDate;
 
+        notEqualTo(date: Date | string): CarbonDate;
+
         inBetween(start: Date | string, end: Date | string): CarbonDate;
 
         checkLeapYear(): CarbonDate;

@@ -24,7 +24,6 @@ class CarbonDate {
     #isTime = false;
 
     constructor(timezone = null) {
-        this.value = null;
         Object.defineProperty(this, 'SUNDAY', {
             value: 0,
             writable: false,
@@ -60,7 +59,48 @@ class CarbonDate {
             writable: false,
             configurable: false
         });
+        Object.defineProperty(this, 'YEARS_PER_CENTURY', {
+            value: 100,
+            writable: false,
+            configurable: false
+        });
+        Object.defineProperty(this, 'YEARS_PER_DECADE', {
+            value: 10,
+            writable: false,
+            configurable: false
+        });
+        Object.defineProperty(this, 'MONTHS_PER_YEAR', {
+            value: 12,
+            writable: false,
+            configurable: false
+        });
+        Object.defineProperty(this, 'WEEKS_PER_YEAR', {
+            value: 52,
+            writable: false,
+            configurable: false
+        });
+        Object.defineProperty(this, 'DAYS_PER_WEEK', {
+            value: 7,
+            writable: false,
+            configurable: false
+        });
+        Object.defineProperty(this, 'HOURS_PER_DAY', {
+            value: 24,
+            writable: false,
+            configurable: false
+        });
+        Object.defineProperty(this, 'MINUTES_PER_HOUR', {
+            value: 60,
+            writable: false,
+            configurable: false
+        });
+        Object.defineProperty(this, 'SECONDS_PER_MINUTE', {
+            value: 60,
+            writable: false,
+            configurable: false
+        });
         this.#setTimeZone(timezone);
+        this.value = timezone ? dayjs().tz(timezone) : dayjs();
     }
 
     static init(timezone = null) {
@@ -729,6 +769,20 @@ class CarbonDate {
         }
 
         this.value = currentVal.isSame(diffDate);
+        return this;
+    }
+
+    notEqualTo(date) {
+        const currentVal = this.value;
+        if (!dayjs.isDayjs(currentVal)) {
+            throw new Error('Invalid Object Type.')
+        }
+        let diffDate = date?.value ? date.value : date;
+        if (!dayjs.isDayjs(diffDate)) {
+            diffDate = this.parse(diffDate).value;
+        }
+
+        this.value = !currentVal.isSame(diffDate);
         return this;
     }
 
