@@ -15,7 +15,7 @@ Or
 ```bash
 const CarbonDate = require('carbondate');
 ```
-#### Initialization
+# Initialization
 ```bash
 CarbonDate.init().now().format().value;
 // 2024-05-27 13:09:59
@@ -26,7 +26,7 @@ const datetime = new CarbonDate();
 datetime.now().format().value;
 // 2024-05-27 13:09:59
 ```
-#### Getters
+# Getters
 
 ```bash
 CarbonDate.init().getYear().value
@@ -104,7 +104,15 @@ CarbonDate.init().getYear().value
         </tr>
     </tbody>
 </table>
-#### List of all available formats
+
+# Fluent Setters
+
+```bash
+CarbonDate.init().setYear(2001).setMonth(12).setDay(12).setHour(11).setMinute(45).setSecond(50).toDateTimeString().value
+// 2001-12-12 11:45:50
+```
+
+# List of all available formats
 
 ```bash
 CarbonDate.init().now().format('YYYY-MM-DD hh:mm:ss A').value
@@ -289,6 +297,47 @@ Or
 CarbonDate.init().parse('2023-05-04 20:55:10').format('YYYY-MM-DD hh:mm:ss A').value
 // 2023-05-04 08:55:10 PM
 ```
+
+# String Formatting
+```bash
+CarbonDate.init().now().toDateTimeString().value
+// 2024-10-18 04:33:07
+```
+
+<table>
+    <thead>
+        <tr>
+            <th>Method</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>toDateString</code></td>
+            <td>2024-12-25</td>
+        </tr>
+        <tr>
+            <td><code>toFormattedDateString</code></td>
+            <td>Dec 25, 2024</td>
+        </tr>
+        <tr>
+            <td><code>toFormattedDayDateString</code></td>
+            <td>Thu, Dec 25, 1975</td>
+        </tr>
+        <tr>
+            <td><code>toTimeString</code></td>
+            <td>14:15:16</td>
+        </tr>
+        <tr>
+            <td><code>toDateTimeString</code></td>
+            <td>2024-12-25 14:15:16</td>
+        </tr>
+        <tr>
+            <td><code>toDayDateTimeString</code></td>
+            <td>Thu, Dec 25, 2024 2:15 PM</td>
+        </tr>
+    </tbody>
+</table>
 
 # Addition
 
@@ -607,6 +656,51 @@ CarbonDate.init().now().lessThan(CarbonDate.init().parse('2024-05-05').value).va
     <tr>
         <td><code>isSameYear</code></td>
         <td>Valid date time string or Date Object</td>
+        <td>return Boolean</td>
+    </tr>
+    <tr>
+        <td><code>isMonday</code></td>
+        <td>--</td>
+        <td>return Boolean</td>
+    </tr>
+    <tr>
+        <td><code>isTuesday</code></td>
+        <td>--</td>
+        <td>return Boolean</td>
+    </tr>
+    <tr>
+        <td><code>isWednesday</code></td>
+        <td>--</td>
+        <td>return Boolean</td>
+    </tr>
+    <tr>
+        <td><code>isThursday</code></td>
+        <td>--</td>
+        <td>return Boolean</td>
+    </tr>
+    <tr>
+        <td><code>isFriday</code></td>
+        <td>--</td>
+        <td>return Boolean</td>
+    </tr>
+    <tr>
+        <td><code>isSaturday</code></td>
+        <td>--</td>
+        <td>return Boolean</td>
+    </tr>
+    <tr>
+        <td><code>isSunday</code></td>
+        <td>--</td>
+        <td>return Boolean</td>
+    </tr>
+    <tr>
+        <td><code>isWeekday</code></td>
+        <td>--</td>
+        <td>return Boolean</td>
+    </tr>
+    <tr>
+        <td><code>isWeekend</code></td>
+        <td>--</td>
         <td>return Boolean</td>
     </tr>
     </tbody>
