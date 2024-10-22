@@ -26,6 +26,11 @@ const datetime = new CarbonDate();
 datetime.now().format().value;
 // 2024-05-27 13:09:59
 ```
+Or
+```bash
+CarbonDate.init().createFromObject({year: new Date().getFullYear(), month: (new Date().getMonth() + 1), day: new Date().getDate(), hour: '00', minute: '00', second: '00'}).toDateTimeString().value
+// 2024-10-22 00:00:00
+```
 # Getters
 
 ```bash
@@ -336,6 +341,10 @@ CarbonDate.init().now().toDateTimeString().value
             <td><code>toDayDateTimeString</code></td>
             <td>Thu, Dec 25, 2024 2:15 PM</td>
         </tr>
+        <tr>
+            <td><code>toIso</code></td>
+            <td>2024-10-22T11:27:10.757Z</td>
+        </tr>
     </tbody>
 </table>
 
@@ -639,6 +648,11 @@ CarbonDate.init().now().lessThan(CarbonDate.init().parse('2024-05-05').value).va
         <td>return Boolean</td>
     </tr>
     <tr>
+        <td><code>notEqualTo</code></td>
+        <td>Valid date time string or Date Object</td>
+        <td>return Boolean</td>
+    </tr>
+    <tr>
         <td><code>inBetween</code></td>
         <td>Valid date time string or Date Object</td>
         <td>return Boolean</td>
@@ -706,31 +720,154 @@ CarbonDate.init().now().lessThan(CarbonDate.init().parse('2024-05-05').value).va
     </tbody>
 </table>
 
-# Leap Year
+# Constants
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>SUNDAY</code></td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td><code>MONDAY</code></td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td><code>TUESDAY</code></td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td><code>WEDNESDAY</code></td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td><code>THURSDAY</code></td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td><code>FRIDAY</code></td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td><code>SATURDAY</code></td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td><code>YEARS_PER_CENTURY</code></td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td><code>YEARS_PER_DECADE</code></td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td><code>MONTHS_PER_YEAR</code></td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td><code>WEEKS_PER_YEAR</code></td>
+            <td>52</td>
+        </tr>
+        <tr>
+            <td><code>DAYS_PER_WEEK</code></td>
+            <td>7</td>
+        </tr>
+        <tr>
+            <td><code>HOURS_PER_DAY</code></td>
+            <td>24</td>
+        </tr>
+        <tr>
+            <td><code>MINUTES_PER_HOUR</code></td>
+            <td>60</td>
+        </tr>
+        <tr>
+            <td><code>SECONDS_PER_MINUTE</code></td>
+            <td>60</td>
+        </tr>
+    </tbody>
+</table>
+
+# Common Functions
+
 ```bash
-CarbonDate.init().now().checkLeapYear().value
+CarbonDate.init().yesterday().toDateTimeString().value
+// 2024-10-21 04:30:05
+```
+
+<table>
+    <thead>
+        <tr>
+            <th>Method</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>startOfYear</code></td>
+        </tr>
+        <tr>
+            <td><code>startOfMonth</code></td>
+        </tr>
+        <tr>
+            <td><code>startOfDay</code></td>
+        </tr>
+        <tr>
+            <td><code>endOfYear</code></td>
+        </tr>
+        <tr>
+            <td><code>endOfMonth</code></td>
+        </tr>
+        <tr>
+            <td><code>endOfDay</code></td>
+        </tr>
+        <tr>
+            <td><code>checkLeapYear</code></td>
+        </tr>
+        <tr>
+            <td><code>dayCountInMonth</code></td>
+        </tr>
+        <tr>
+            <td><code>diffForHumans</code></td>
+        </tr>
+        <tr>
+            <td><code>monthNumber</code></td>
+        </tr>
+        <tr>
+            <td><code>currentTimezone</code></td>
+        </tr>
+    </tbody>
+</table>
+
+### Leap Year
+```bash
+CarbonDate.init().yesterday().checkLeapYear().value
 // true
 ```
 
-# Days in month
+### Days in month
 ```bash
 CarbonDate.init().now().dayCountInMonth().value
 // as now is May so output is: 31
 ```
 
-# Start of month
+### Start of month
 ```bash
 CarbonDate.init().now().startOfMonth().format('YYYY-MM-DD').value
 // 2024-05-01
 ```
 
-# End of month
+### End of month
 ```bash
 CarbonDate.init().now().endOfMonth().format('YYYY-MM-DD').value
 // 2024-05-31
 ```
 
-# Diff for human
+### Diff for human
 ```bash
 CarbonDate.init().now().diffForHumans().value
 // a few seconds ago
@@ -741,7 +878,7 @@ CarbonDate.init().now().diffForHumans(CarbonDate.init().now().subHour().value).v
 // in an hour
 ```
 
-# Month Number
+### Month Number
 * be careful with the month name spelling
  ```bash
  CarbonDate.init().monthNumber('January').value
@@ -791,7 +928,7 @@ datetime.now().format().value;
 ```
 
 
-# Current Timezone
+### Current Timezone
 ```bash
 CarbonDate.init('America/Los_Angeles').currentTimezone().value
 // America/Los_Angeles
