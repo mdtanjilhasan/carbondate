@@ -6,6 +6,7 @@ import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import isLeapYear from 'dayjs/plugin/isLeapYear';
 import isBetween from 'dayjs/plugin/isBetween';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import dayOfYear from 'dayjs/plugin/dayOfYear';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -14,6 +15,7 @@ dayjs.extend(isSameOrAfter);
 dayjs.extend(isLeapYear);
 dayjs.extend(isBetween);
 dayjs.extend(relativeTime);
+dayjs.extend(dayOfYear);
 
 export default class CarbonDate {
 
@@ -1016,6 +1018,24 @@ export default class CarbonDate {
         }
 
         this.value = currentVal.isSame(diffDate, 'year');
+        return this;
+    }
+
+    dayNumberOfYear() {
+        const currentVal = this.value;
+        if (!dayjs.isDayjs(currentVal)) {
+            throw new Error('Invalid Object Type.')
+        }
+        this.value = currentVal.dayOfYear();
+        return this;
+    }
+
+    dateFormDayNumber(dayNumber) {
+        const currentVal = this.value;
+        if (!dayjs.isDayjs(currentVal)) {
+            throw new Error('Invalid Object Type.')
+        }
+        this.value = currentVal.dayOfYear(dayNumber);
         return this;
     }
 }

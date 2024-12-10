@@ -1,6 +1,6 @@
 {
   "name": "carbondate",
-  "version": "2.1.8",
+  "version": "2.1.9",
   "description": "A Simple DateTime Package Based On dayjs. Also Supports Timezone. Developer friendly syntax.",
   "main": "src/carbondate.cjs",
   "module": "src/carbondate.mjs",

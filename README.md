@@ -722,6 +722,17 @@ CarbonDate.init().now().lessThan(CarbonDate.init().parse('2024-05-05').value).va
 
 # Constants
 
+```bash
+CarbonDate.init().SUNDAY
+// 0
+```
+OR
+```bash
+let instance = new CarbonDate();
+instance.SUNDAY
+// 0
+```
+
 <table>
     <thead>
         <tr>
@@ -889,6 +900,31 @@ OR
  CarbonDate.init().monthNumber('jan').value
  // 01
  ```
+
+### dayOfYear
+* get date from day number
+
+ ```bash
+ CarbonDate.init().now().dateFromDayNumber(300).format('YYYY-MM-DD HH:mm:ss').value
+ // 2024-10-26 21:20:30
+ ```
+OR
+ ```bash
+ CarbonDate.init().parse('2024-09-05').dateFromDayNumber(300).format('YYYY-MM-DD HH:mm:ss').value
+ // 2024-10-26 21:20:30
+ ```
+* get day number of year
+
+ ```bash
+ CarbonDate.init().now().dayNumberOfYear().value
+ // as now is 09-12-2024 output is: 344
+ ```
+OR
+ ```bash
+ CarbonDate.init().parse('2024-09-05').dayNumberOfYear().value
+ // 249
+ ```
+
 
 # Timezone
 

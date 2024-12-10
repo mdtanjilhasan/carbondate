@@ -195,6 +195,10 @@ declare module 'carbondate' {
         isSameDay(date: Date | string): CarbonDate;
 
         isSameYear(date: Date | string): CarbonDate;
+
+        dayNumberOfYear(): CarbonDate;
+
+        dateFromDayNumber(date: Date | string): CarbonDate;
     }
 
     export default CarbonDate;
