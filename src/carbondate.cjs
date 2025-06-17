@@ -142,6 +142,11 @@ class CarbonDate {
         return this;
     }
 
+    toUTC() {
+        this.value = dayjs.utc(this.value);
+        return this;
+    }
+
     toDateTimeString() {
         this.value = this.value.format('YYYY-MM-DD HH:mm:ss');
         return this;

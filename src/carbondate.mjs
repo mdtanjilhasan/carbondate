@@ -140,6 +140,11 @@ export default class CarbonDate {
         return this;
     }
 
+    toUTC() {
+        this.value = this.value.utc();
+        return this;
+    }
+
     toDateTimeString() {
         this.value = this.value.format('YYYY-MM-DD HH:mm:ss');
         return this;

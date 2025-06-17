@@ -2,7 +2,7 @@ declare module 'carbondate' {
     export class CarbonDate {
         constructor();
 
-        static init(): CarbonDate;
+        static init(timezone?: string | undefined): CarbonDate;
 
         now(): CarbonDate;
 
@@ -15,6 +15,8 @@ declare module 'carbondate' {
         format(format: string): CarbonDate;
 
         toIso(): CarbonDate;
+
+        toUTC(): CarbonDate;
 
         toDateTimeString(): CarbonDate;
 
