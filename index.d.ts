@@ -16,7 +16,7 @@ declare module 'carbondate' {
 
         toIso(): CarbonDate;
 
-        toUTC(): CarbonDate;
+        toUTC(doNotChangeTimezone?: boolean): CarbonDate;
 
         toDateTimeString(): CarbonDate;
 

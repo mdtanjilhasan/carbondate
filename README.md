@@ -239,16 +239,6 @@ CarbonDate.init().now().format('YYYY-MM-DD hh:mm:ss A').value
             <td>The millisecond, 3-digits</td>
         </tr>
         <tr>
-            <td><code>Z</code></td>
-            <td>+05:00</td>
-            <td>The offset from UTC, ±HH:mm</td>
-        </tr>
-        <tr>
-            <td><code>ZZ</code></td>
-            <td>+0500</td>
-            <td>The offset from UTC, ±HHmm</td>
-        </tr>
-        <tr>
             <td><code>A</code></td>
             <td>AM PM</td>
             <td></td>
@@ -344,6 +334,10 @@ CarbonDate.init().now().toDateTimeString().value
         <tr>
             <td><code>toIso</code></td>
             <td>2024-10-22T11:27:10.757Z</td>
+        </tr>
+        <tr>
+            <td><code>toUTC</code></td>
+            <td>Convert Date TIme into UTC</td>
         </tr>
     </tbody>
 </table>

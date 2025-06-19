@@ -142,9 +142,15 @@ class CarbonDate {
         return this;
     }
 
-    toUTC() {
-        this.value = dayjs.utc(this.value);
-        return this;
+    toUTC(doNotChangeTimezone = false) {
+        if (dayjs.isDayjs(this.value)) {
+            if (doNotChangeTimezone) {
+                this.value = this.value.utc(doNotChangeTimezone);
+            } else {
+                this.value = this.value.utc();
+            }
+            return this;
+        }
     }
 
     toDateTimeString() {
