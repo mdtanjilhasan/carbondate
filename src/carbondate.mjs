@@ -370,10 +370,7 @@ export default class CarbonDate {
                 let val = array[0];
                 const timeFound = this.#getMatchedTime(val);
 
-                if (timeFound.length) {
-                    throw 'Invalid Time String.';
-                }
-                if (!this.#isValidTime(val)) {
+                if (timeFound.length && !this.#isValidTime(val)) {
                     throw 'Invalid Time String.';
                 }
 
