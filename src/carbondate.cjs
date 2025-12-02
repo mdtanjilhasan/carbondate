@@ -331,19 +331,25 @@ class CarbonDate {
 
     // Fluent Setters End
 
-    parse(dateTimeString, convert = false) {
+    parse(dateTimeString, doNotChange = false) {
         let dateTime = this.#getValidData(dateTimeString);
         if (!dateTime) {
             this.value = null;
         } else {
             let newDateTimeString = this.#isTime ? this.now().format('YYYY-MM-DD').value + ' ' + dateTimeString : dateTime;
-            const hasTimezone = /[TZ+]/.test(newDateTimeString), hasGmt = /GMT/.test(newDateTimeString);
+            const hasTimezone = /[TZ+]/.test(newDateTimeString),
+                hasGmt = /GMT/.test(newDateTimeString),
+                containAlpha = /[a-zA-Z]/.test(newDateTimeString);
+
             if (hasGmt) {
                 newDateTimeString = newDateTimeString instanceof Date ? newDateTimeString.toISOString() : newDateTimeString;
             }
+
             if (hasTimezone && !hasGmt) {
                 this.value = dayjs.utc(newDateTimeString).tz(this.timezone);
-            } else {
+            } else if (containAlpha && doNotChange) {
+                this.value = dayjs(newDateTimeString);
+            }  else {
                 this.value = dayjs.tz(newDateTimeString, this.timezone);
             }
         }
