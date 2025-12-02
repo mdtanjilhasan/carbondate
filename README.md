@@ -938,25 +938,6 @@ datetime.now().format().value;
 
 if you are not using any timezone. then it will take system timezone by default.
 
-if you wish to use ```.env``` file for timezone; for central timezone for your app
-
-1. Install ```dotenv``` package. using ```npm i dotenv```
-2. Create ```.env``` file to the root of your project
-3. set timezone ```APP_TIMEZONE='America/Los_Angeles'```
-
-After following this steps you can use like the example bellow:
-
-```bash
-CarbonDate.init().now().format().value;
-// 2024-05-28 06:12:26 this is the time for America/Los_Angeles
-```
-Or
-```bash
-const datetime = new CarbonDate();
-datetime.now().format().value;
-// 2024-05-28 06:12:26 this is the time for America/Los_Angeles
-```
-
 
 ### Current Timezone
 ```bash
@@ -964,7 +945,6 @@ CarbonDate.init('America/Los_Angeles').currentTimezone().value
 // America/Los_Angeles
 ```
 
-if you are not using ```.env``` file
 ```bash
 CarbonDate.init().currentTimezone().value
 // Asia/Dhaka my current timezone
@@ -972,11 +952,6 @@ CarbonDate.init().currentTimezone().value
 
 # Convert date time to a specific timezone
 ```bash
-CarbonDate.init('America/Los_Angeles').parse('2024-05-10 10:00:50', true).format('YYYY-MM-DD hh:ss:mm A').value
-// 2024-05-09 09:50:00 PM
-```
-if you are using ```.env``` file
-```bash
-CarbonDate.init().parse('2024-05-10 10:00:50', true).format('YYYY-MM-DD hh:ss:mm A').value
+CarbonDate.init('America/Los_Angeles').parse('2024-05-10 10:00:50').format('YYYY-MM-DD hh:ss:mm A').value
 // 2024-05-09 09:50:00 PM
 ```
