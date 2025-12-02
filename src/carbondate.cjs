@@ -592,7 +592,7 @@ class CarbonDate {
 
     // date timezone start
     currentTimezone() {
-        this.value = process.env.APP_TIMEZONE ? process.env.APP_TIMEZONE : dayjs.tz.guess();
+        this.value = dayjs.tz.guess();
         return this;
     }
 

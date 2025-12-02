@@ -590,7 +590,7 @@ export default class CarbonDate {
 
     // date timezone start
     currentTimezone() {
-        this.value = import.meta.env.APP_TIMEZONE ? import.meta.env.APP_TIMEZONE : dayjs.tz.guess();
+        this.value = dayjs.tz.guess();
         return this;
     }
 
